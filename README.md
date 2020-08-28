@@ -1,24 +1,11 @@
-# README
+# HOME-RAMEN
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 環境
+* 言語(Ruby 2.5.8)
+* フレームワーク(Ruby on Rails 5.2.4)
+* 開発(Docker)
 
-Things you may want to cover:
+## 機能・技術
+* 単体・統合テスト(RSpec)
+* 静的解析ツール(RuboCop)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
