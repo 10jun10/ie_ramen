@@ -13,16 +13,15 @@
  *= require_tree .
  *= require_self
  */
-body {
-  margin: 0;
-}
 
-header {
+ body {
+   margin: 0;
+ }
+
+ header {
   background-color: aqua;
-}
-
-footer {
+ }
+ footer {
   text-align: center;
   background-color: aqua;
-}
-/*# sourceMappingURL=application.css.map */
+ }
