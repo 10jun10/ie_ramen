@@ -1,2 +1,28 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, "アカウントの作成") %>
+<div class="row justify-content-center">
+  <div class="col-md-10 user_form">
+    <h1>アカウントを作成</h1>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <%= f.submit "アカウントを作成する", class: 'btn btn-block' %>
+    <% end %>
+    <hr>
+    <p class="text-center">すでにアカウントをお持ちの方はこちら <%= link_to "ログイン", new_user_path %></p>
+  </div>
+</div>
