@@ -14,14 +14,14 @@
  *= require_self
  */
 
- body {
-   margin: 0;
- }
-
  header {
-  background-color: aqua;
+  background-color: #131A22;
+  a {
+    color: white;
+  }
  }
  footer {
   text-align: center;
-  background-color: aqua;
+  background-color: #131A22;
+  color: white;
  }

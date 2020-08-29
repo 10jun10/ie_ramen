@@ -1,4 +1,12 @@
-<header>
-  <%= link_to "家ラーメン", root_path %>
-  <%= link_to "家ラーメンとは", about_path %>
+<header class="navbar navbar-fixed-top navbar-light">
+ <div class="container">
+   <%= link_to root_path do %>
+    <i class="fas fa-utensils"></i> 家ラーメン
+   <% end %>
+   <nav>
+     <ul class="nav navbar-nav">
+       <li><%= link_to "家ラーメンとは", about_path %></li>
+     </ul>
+   </nav>
+ </div>
 </header>
