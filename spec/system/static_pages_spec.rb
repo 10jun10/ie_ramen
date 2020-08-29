@@ -9,6 +9,5 @@ RSpec.describe "静的ページ", type: :system do
     it "正しいタイトルが表示されることを確認" do
       expect(page).to have_title full_title('家ラーメンとは')
     end
-
   end
 end

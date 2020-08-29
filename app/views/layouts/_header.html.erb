@@ -1,12 +1,16 @@
-<header class="navbar navbar-fixed-top navbar-light">
- <div class="container">
-   <%= link_to root_path do %>
-    <i class="fas fa-utensils"></i> 家ラーメン
-   <% end %>
-   <nav>
-     <ul class="nav navbar-nav">
-       <li><%= link_to "家ラーメンとは", about_path %></li>
-     </ul>
-   </nav>
- </div>
+<header>
+  <div class="container">
+    <nav class="navbar navbar-expand-sm">
+      <a class="navbar-brand" href="/"><i class="fas fa-utensils"></i> 家ラーメン</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="about" class="nav-link">家ラーメンとは</a></li>
+          <li class="nav-item"><a href="/signup" class="nav-link">アカウント作成</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </header>

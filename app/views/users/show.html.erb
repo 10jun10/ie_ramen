@@ -1,0 +1,5 @@
+<% provide(:title, "プロフィール") %>
+<h1>プロフィール</h1>
+<%= gravatar_for @user %><br>
+<%= @user.id %>, <%= @user.name %><br>
+<%= @user.introduction %><br>
