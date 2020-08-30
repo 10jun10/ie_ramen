@@ -95,4 +95,64 @@ footer {
   color: black;
   text-decoration: none;
 }
+
+.user_prof {
+  margin: 30px 0;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+}
+
+.user_prof h3 {
+  margin-bottom: 0;
+}
+
+.user_prof .user-img-box img {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+}
+
+.user_prof p {
+  padding: 30px 50px 60px;
+}
+
+.edit_form {
+  margin: 30px 0;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.edit_form h2 {
+  text-align: center;
+}
+
+.edit_form .gravatar {
+  text-align: center;
+}
+
+.edit_form .gravatar img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.edit_form .gravatar p {
+  margin-bottom: 0;
+}
+
+.edit_form .gravatar a {
+  font-size: .8rem;
+}
+
+.edit_form label {
+  margin: 0;
+}
+
+.edit_form .btn {
+  background-color: #131A22;
+  color: white;
+}
 /*# sourceMappingURL=application.css.map */

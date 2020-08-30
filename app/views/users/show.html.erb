@@ -1,5 +1,20 @@
-<% provide(:title, "プロフィール") %>
-<h1>プロフィール</h1>
-<%= gravatar_for @user %><br>
-<%= @user.id %>, <%= @user.name %><br>
-<%= @user.introduction %><br>
+<% provide(:title, "#{@user.name}のプロフィール") %>
+<div class="row justify-content-center">
+  <div class="col-md-9 user_prof">
+    <div class="user-img-box">
+      <%= gravatar_for @user, size: 120, cl: "gravatar" %>
+    </div>
+    <h3><%= @user.name %></h3>
+    <% if current_user == @user %>
+      <div class="user-edit"><%= link_to "編集", edit_user_path(@user) %>
+    <% end %>
+    <hr>
+    <div class="text-left">
+      <p><%= @user.introduction %></p>
+    </div>
+    <hr>
+    <div class="text-left">
+      <h5><%= @user.name %>の投稿ラーメン</h5>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  def index
-  end
+  before_action :logged_in_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -22,9 +22,36 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_update_params)
+      flash[:success] = "更新成功しました"
+      redirect_to @user
+    else
+      flash.now[:danger] = "更新失敗しました"
+      render :edit
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def user_update_params
+    params.require(:user).permit(:name, :email, :introduction)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    if !current_user?(@user)
+      flash[:danger] = "アクセス権限がありません"
+      redirect_to root_path
+    end
   end
 end

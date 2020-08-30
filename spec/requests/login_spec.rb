@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Sessions", type: :request do
-  let!(:user){ create(:user) }
+  let!(:user) { create(:user) }
 
   describe "ログイン" do
     it "正常なレスポンスを返すこと" do
@@ -13,7 +13,7 @@ RSpec.describe "Sessions", type: :request do
     it "有効なアカウントでログイン・ログアウトすること" do
       get login_path
       post login_path, params: { session: { email: user.email,
-                                            password: user.password} }
+                                            password: user.password } }
       redirect_to user
       follow_redirect!
       expect(response).to render_template('users/show')
@@ -26,7 +26,7 @@ RSpec.describe "Sessions", type: :request do
     it "無効なアカウントでログインすること" do
       get login_path
       post login_path, params: { session: { email: "test@test.com",
-                                            password: user.password} }
+                                            password: user.password } }
       expect(is_logged_in?).not_to be_truthy
     end
   end
