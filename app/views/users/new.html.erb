@@ -1,6 +1,6 @@
 <% provide(:title, "アカウントの作成") %>
 <div class="row justify-content-center">
-  <div class="col-md-10 user_form">
+  <div class="col-md-10 signup_form">
     <h1>アカウントを作成</h1>
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
@@ -23,6 +23,6 @@
       <%= f.submit "アカウントを作成する", class: 'btn btn-block' %>
     <% end %>
     <hr>
-    <p class="text-center">すでにアカウントをお持ちの方はこちら <%= link_to "ログイン", new_user_path %></p>
+    <p class="text-center">すでにアカウントをお持ちの方はこちら <%= link_to "ログイン", login_path %></p>
   </div>
 </div>

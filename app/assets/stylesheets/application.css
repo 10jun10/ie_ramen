@@ -25,27 +25,74 @@ header a {
   color: white;
 }
 
+header .navbar-nav li {
+  padding-left: 10px;
+}
+
+header .dropdown-menu a {
+  color: #131A22;
+}
+
 footer {
   text-align: center;
 }
 
-.user_form {
+.signup_form {
   margin: 30px 0;
   background-color: white;
   border-radius: 4px;
   padding: 10px;
 }
 
-.user_form h1 {
+.signup_form h1 {
   font-size: 2rem;
 }
 
-.user_form label {
+.signup_form label {
   margin: 0;
 }
 
-.user_form .btn {
+.signup_form p {
+  text-align: center;
+}
+
+.signup_form .btn {
   background-color: #131A22;
   color: white;
+}
+
+.login_form {
+  margin: 30px 0;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.login_form h1 {
+  font-size: 2rem;
+}
+
+.login_form label {
+  margin: 0;
+}
+
+.login_form p {
+  text-align: center;
+}
+
+.login_form .btn-primary {
+  background-color: #131A22;
+  color: white;
+}
+
+.login_form .signup_btn {
+  background-color: #d6d6d640;
+  border: .1px solid;
+  border-radius: 4px;
+}
+
+.login_form .signup_btn a {
+  color: black;
+  text-decoration: none;
 }
 /*# sourceMappingURL=application.css.map */
