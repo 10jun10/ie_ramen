@@ -37,6 +37,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    flash[:success] = "アカウントを削除しました。またのご利用をお待ちしております。"
+    redirect_to root_path
+  end
+
   private
 
   def user_params

@@ -6,7 +6,8 @@
     </div>
     <h3><%= @user.name %></h3>
     <% if current_user == @user %>
-      <div class="user-edit"><%= link_to "編集", edit_user_path(@user) %>
+      <div class="user-edit"><%= link_to "編集", edit_user_path(@user) %> | <%= link_to "アカウント削除", user_path(@user), method: :delete,
+                                  data: { confirm: "本当にアカウントを削除しますか？" } %>
     <% end %>
     <hr>
     <div class="text-left">
@@ -14,7 +15,11 @@
     </div>
     <hr>
     <div class="text-left">
-      <h5><%= @user.name %>の投稿ラーメン</h5>
+      <% if current_user == @user %>
+        <h5>あなたの食べた家ラーメン</h5>
+      <% else %>
+        <h5><%= @user.name %>さんの食べた家ラーメン</h5>
+      <% end %>
     </div>
   </div>
 </div>
