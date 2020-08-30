@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
-  let!(:user) { create(:user)}
+  let!(:user) { create(:user) }
 
   describe "アカウント作成ページ" do
     before do
@@ -11,6 +11,10 @@ RSpec.describe "Users", type: :system do
     context "レイアウト" do
       it "正しいタイトルが表示されること" do
         expect(page).to have_title full_title('アカウントの作成')
+      end
+
+      it "ログインページへの導線があること" do
+        expect(page).to have_link 'ログイン', href: login_path
       end
     end
 
@@ -44,6 +48,5 @@ RSpec.describe "Users", type: :system do
     it "正しいタイトルが表示されること" do
       expect(page).to have_title full_title('プロフィール')
     end
-
   end
 end
