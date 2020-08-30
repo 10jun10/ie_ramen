@@ -6,9 +6,9 @@ RSpec.describe "プロフィール編集", type: :request do
 
   context "許可されたユーザーの場合" do
     it "正常なレスポンスを返すこと" do
-      log_in(user)
       get edit_user_path(user)
-      expect(response).to render_template('users/edit')
+      log_in(user)
+      expect(response).to redirect_to edit_user_url(user)
       patch user_path(user), params: { user: { name: "test",
                                                email: "test@example.com",
                                                introduction: "test" } }
