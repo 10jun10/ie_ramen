@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
+  let!(:admin_user) { create(:user, :admin) }
 
   describe "アカウント一覧ページ" do
     it "ページネーションが適用されていること" do
       create_list(:user, 11)
-      log_in_as(user)
+      log_in_as(admin_user)
       visit users_path
       expect(page).to have_css ".pagination"
+      expect(page).to have_content "#{user.name} | 削除"
     end
   end
 
@@ -61,6 +63,10 @@ RSpec.describe "Users", type: :system do
 
     it "編集ページへの導線が表示されること" do
       expect(page).to have_link "編集", href: edit_user_path(user)
+    end
+
+    it "削除のリンクが有ること" do
+      expect(page).to have_link "削除"
     end
   end
 
