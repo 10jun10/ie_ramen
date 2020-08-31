@@ -3,6 +3,15 @@ require 'rails_helper'
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
 
+  describe "アカウント一覧ページ" do
+    it "ページネーションが適用されていること" do
+      create_list(:user, 11)
+      log_in_as(user)
+      visit users_path
+      expect(page).to have_css ".pagination"
+    end
+  end
+
   describe "アカウント作成ページ" do
     before do
       visit signup_path
