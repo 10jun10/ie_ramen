@@ -6,6 +6,9 @@
 * 開発(Docker)
 
 ## 機能・技術
+* データベース(PostgreSQL)
 * 単体・統合テスト(RSpec)
 * 静的解析ツール(RuboCop)
+* ページネーション(kaminari)
+* デザイン(Bootstrap,Sass)
 
