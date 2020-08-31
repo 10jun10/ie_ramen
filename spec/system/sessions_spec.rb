@@ -17,7 +17,7 @@ RSpec.describe "Sessions", type: :system do
         expect(page).to have_content "メールアドレス"
         expect(page).to have_content "パスワード"
       end
-    
+
       it "フォームが正しく表示されること" do
         expect(page).to have_css "input#session_email"
         expect(page).to have_css "input#session_password"
@@ -33,7 +33,7 @@ RSpec.describe "Sessions", type: :system do
     end
 
     context "ログイン処理" do
-      it "ログイン前後でヘッダーが変わること" do 
+      it "ログイン前後でヘッダーが変わること" do
         expect(page).to have_link "家ラーメンとは", href: about_path
         expect(page).to have_link "アカウント作成", href: signup_path
         expect(page).to have_link "ログイン", href: login_path
@@ -45,7 +45,6 @@ RSpec.describe "Sessions", type: :system do
         expect(page).to have_link "家ラーメンとは", href: about_path
         expect(page).to have_link "プロフィール", href: user_path(user)
         expect(page).to have_link "ログアウト", href: logout_path
-
       end
 
       it "無効なアカウントでログインしようとしたときの処理" do

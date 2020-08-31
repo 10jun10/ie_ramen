@@ -1,0 +1,48 @@
+require "rails_helper"
+
+RSpec.describe "プロフィール編集", type: :request do
+  let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
+
+  context "許可されたユーザーの場合" do
+    it "正常なレスポンスを返すこと" do
+      get edit_user_path(user)
+      log_in(user)
+      expect(response).to redirect_to edit_user_url(user)
+      patch user_path(user), params: { user: { name: "test",
+                                               email: "test@example.com",
+                                               introduction: "test" } }
+      redirect_to user
+      follow_redirect!
+      expect(response).to render_template('users/show')
+    end
+  end
+
+  context "ユーザーがログインしていない場合" do
+    it "編集が無効であること" do
+      get edit_user_path(user)
+      expect(response).to have_http_status "302"
+      expect(response).to redirect_to login_path
+      patch user_path(user), params: { user: { name: "user.name",
+                                               email: "test@example.com",
+                                               introduction: "test" } }
+      expect(response).to have_http_status "302"
+      expect(response).to redirect_to login_path
+    end
+  end
+
+  context "他のユーザーが編集しようとした場合場合" do
+    it "編集が無効であること" do
+      log_in(other_user)
+      get edit_user_path(user)
+      expect(response).to have_http_status "302"
+      expect(response).to redirect_to root_path
+
+      patch user_path(user), params: { user: { name: "user.name",
+                                               email: "test@example.com",
+                                               introduction: "test" } }
+      expect(response).to have_http_status "302"
+      expect(response).to redirect_to root_path
+    end
+  end
+end
