@@ -31,7 +31,7 @@ RSpec.describe "プロフィール編集", type: :request do
     end
   end
 
-  context "他のユーザーが編集しようとした場合場合" do
+  context "他のユーザーが編集しようとした場合" do
     it "編集が無効であること" do
       log_in(other_user)
       get edit_user_path(user)

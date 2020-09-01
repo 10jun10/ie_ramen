@@ -1,0 +1,13 @@
+<h3>家ラーメン一覧(<%= @noodles.count %>)</h3>
+<div class="noodles_index">
+  <div class="row">
+    <div class="col-sm-9">
+      <%= render "noodles/noodles" %>
+    </div>
+    <div class="col-sm-3">
+      <p><%= link_to "投稿", new_noodle_path, class: "btn btn-lg btn-record" %></p>
+    </div>
+
+  </div>
+  <%= paginate @noodles %>
+</div>

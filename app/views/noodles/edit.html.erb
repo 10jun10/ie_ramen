@@ -1,0 +1,13 @@
+<% provide(:title, "家ラーメン編集") %>
+<div class="row justify-content-center">
+  <div class="col-md-10 noodle_form">
+    <h1>家ラーメン編集</h1>
+    <%= form_with(model: @noodle, local: true) do |f| %>
+      <%= render "noodles_form", f:f %>
+    <%= f.submit "家ラーメンを更新する", class: 'btn btn-block' %>
+    <p class="text-center mt-4">or</p>
+    <%= link_to "削除", noodle_path(@noodle), method: :delete,
+                       data: { confirm: "本当に削除しますか？" }, class: 'btn btn-block delete_btn' %>
+   <% end %>
+  </div>
+</div>

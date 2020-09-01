@@ -1,0 +1,18 @@
+<ul>
+  <% @noodles.each do |noodle| %>
+    <li>
+      <div class="row">
+        <div class="col-sm-4">
+          <%= noodle.image %>
+          画像が入る
+        </div>
+        <div class="col-sm-8 ">
+          <p><%= link_to noodle.name, "#{noodle_path(noodle)}" %><span><%= noodle.maker %></span><p>
+          <div class="noodle_user_info">
+            <p text-right><small>投稿日:<%= noodle.created_at.strftime("%Y-%m-%d/%H:%M") %> 投稿者:<%= link_to noodle.user.name, user_path(noodle.user) %>さん</small></p>
+          </div>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -18,7 +18,7 @@ body {
 }
 
 header {
-  background-color: #131A22;
+  background-color: #f60;
 }
 
 header a {
@@ -30,7 +30,7 @@ header .navbar-nav li {
 }
 
 header .dropdown-menu a {
-  color: #131A22;
+  color: #f60;
 }
 
 footer {
@@ -57,7 +57,7 @@ footer {
 }
 
 .signup_form .btn {
-  background-color: #131A22;
+  background-color: #f60;
   color: white;
 }
 
@@ -81,7 +81,7 @@ footer {
 }
 
 .login_form .btn-primary {
-  background-color: #131A22;
+  background-color: #f60;
   color: white;
 }
 
@@ -118,6 +118,27 @@ footer {
   padding: 30px 50px 60px;
 }
 
+.user_prof .user_noodles ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.user_prof .user_noodles ul li {
+  border-top: 1px dotted #ababab;
+}
+
+.user_prof .user_noodles .btn {
+  position: fixed;
+  top: 40%;
+  width: 100px;
+  height: 100px;
+  background: #f60;
+  color: white;
+  border-radius: 100%;
+  line-height: 80px;
+}
+
 .edit_form {
   margin: 30px 0;
   background-color: white;
@@ -152,7 +173,82 @@ footer {
 }
 
 .edit_form .btn {
-  background-color: #131A22;
+  background-color: #f60;
   color: white;
+}
+
+.noodles_index ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.noodles_index ul li {
+  border-top: 1px dotted #ababab;
+}
+
+.noodles_index .btn {
+  position: fixed;
+  top: 70%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  background: #f60;
+  color: white;
+  border-radius: 100%;
+  line-height: 80px;
+}
+
+.noodles_index .noodle_user_info {
+  text-align: right;
+}
+
+.noodle_form {
+  margin: 30px 0;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.noodle_form h2 {
+  text-align: center;
+}
+
+.noodle_form .gravatar {
+  text-align: center;
+}
+
+.noodle_form .gravatar img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.noodle_form .gravatar p {
+  margin-bottom: 0;
+}
+
+.noodle_form .gravatar a {
+  font-size: .8rem;
+}
+
+.noodle_form label {
+  margin: 0;
+}
+
+.noodle_form .btn {
+  background-color: #f60;
+  color: white;
+}
+
+.noodle_form .delete_btn {
+  background-color: gray;
+}
+
+.noodle_show {
+  margin: 30px 0;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
 }
 /*# sourceMappingURL=application.css.map */

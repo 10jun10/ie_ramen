@@ -22,3 +22,8 @@ User.create!(name: "test",
                password: password,
                password_confirmation: password)
 end
+
+12.times do |n|
+  Noodle.create!(name: "蒙古タンメン",
+                 user_id: 1)
+end
