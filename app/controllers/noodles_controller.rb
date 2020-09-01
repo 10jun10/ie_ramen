@@ -1,6 +1,7 @@
 class NoodlesController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
+  before_action :set_noodle, only: [:show, :edit, :update, :destroy]
 
   def index
     @noodles = Noodle.all.page(params[:page]).per(10)
@@ -22,15 +23,12 @@ class NoodlesController < ApplicationController
   end
 
   def show
-    @noodle = Noodle.find(params[:id])
   end
 
   def edit
-    @noodle = Noodle.find(params[:id])
   end
 
   def update
-    @noodle = Noodle.find(params[:id])
     if @noodle.update_attributes(noodle_params)
       flash[:success] = "家ラーメンが更新されました"
       redirect_to @noodle
@@ -41,7 +39,6 @@ class NoodlesController < ApplicationController
   end
 
   def destroy
-    @noodle = Noodle.find(params[:id])
     if current_user.admin? || current_user?(@noodle.user)
       @noodle.destroy
       flash[:success] = "家ラーメンが削除されました"
@@ -53,6 +50,10 @@ class NoodlesController < ApplicationController
   end
 
   private
+
+  def set_noodle
+    @noodle = Noodle.find(params[:id])
+  end
 
   def noodle_params
     params.require(:noodle).permit(:name, :maker, :place, :eat, :image)
