@@ -12,7 +12,11 @@
         <p>購入したお店:<%= @noodle.place %></p>
         <p>美味しい食べ方:<%= @noodle.eat %></p>
         <% if current_user == @noodle.user %>
-          <%= link_to "編集", edit_noodle_path(@noodle)  %>
+          <%= link_to "編集", edit_noodle_path(@noodle)  %> | 
+          <% if current_user.admin? || (current_user == @noodle.user) %>
+            <%= link_to "削除", noodle_path(@noodle), method: :delete,
+                              data: { confirm: "本当に削除しますか？" } %>
+          <% end %>
         <% end %>
         <p class="text-right"><small>投稿日:<%= @noodle.created_at.strftime("%Y-%m-%d/%H:%M") %> 投稿者:<%= link_to @noodle.user.name, user_path(@noodle.user) %>さん</small></p>
       </div>

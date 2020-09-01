@@ -1,5 +1,5 @@
 class NoodlesController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :edit, :update]
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
 
   def index
@@ -37,6 +37,18 @@ class NoodlesController < ApplicationController
     else
       flash.now[:danger] = "更新に失敗しました"
       render :edit
+    end
+  end
+
+  def destroy
+    @noodle = Noodle.find(params[:id])
+    if current_user.admin? || current_user?(@noodle.user)
+      @noodle.destroy
+      flash[:success] = "家ラーメンが削除されました"
+      redirect_back(fallback_location: root_url)
+    else
+      flash.now[:danger] = "他人の家ラーメンは削除できません"
+      redirect_to root_url
     end
   end
 

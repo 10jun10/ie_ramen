@@ -181,13 +181,17 @@ footer {
   }
   .btn {
     position: fixed;
-    top: 40%;
+    top: 70%;
+    right: 10%;
     width:100px;
     height:100px;
     background:#f60;
     color: white;
     border-radius:100%;
     line-height: 80px;
+  }
+  .noodle_user_info {
+    text-align: right;
   }
 }
 
@@ -220,6 +224,9 @@ footer {
   .btn {
     background-color: #f60;
     color: white;
+  }
+  .delete_btn {
+    background-color: gray;
   }
 }
 .noodle_show {

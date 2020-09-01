@@ -65,6 +65,7 @@ RSpec.describe "Noodles", type: :system do
 
   describe "詳細ページ" do
     before do
+      log_in_as(user)
       visit noodle_path(noodle)
     end
 
@@ -72,7 +73,7 @@ RSpec.describe "Noodles", type: :system do
       it "正しいタイトルが表示されること" do
         expect(page).to have_title full_title("#{noodle.name}")
       end
-      
+
       it "正しい情報が表示されること" do
         expect(page).to have_content noodle.name
         expect(page).to have_content noodle.maker
