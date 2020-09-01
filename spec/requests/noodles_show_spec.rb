@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Noodles", type: :request do
+RSpec.describe "ラーメン詳細", type: :request do
   let!(:user) { create(:user) }
   let!(:noodle) {create(:noodle, user: user)}
 

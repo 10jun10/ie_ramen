@@ -82,4 +82,39 @@ RSpec.describe "Noodles", type: :system do
       end
     end
   end
+
+  describe "編集ページ" do
+    before do
+      log_in_as(user)
+      visit edit_noodle_path(noodle)
+      # click_button "編集"
+    end
+
+    context "レイアウト" do
+      it "フォームに正しいラベルが表示されること" do
+        expect(page).to have_content "商品名"
+        expect(page).to have_content "メーカー"
+        expect(page).to have_content "購入したお店"
+        expect(page).to have_content "おすすめの食べ方"
+      end
+    end
+
+    context "ラーメン投稿処理" do
+      it "有効なデータで更新すると更新成功のフラッシュが表示されること" do
+        fill_in "商品名", with: "蒙古タンメン"
+        fill_in "メーカー", with: "日清食品"
+        fill_in "購入したお店", with: "セブンイレブン"
+        fill_in "おすすめの食べ方", with: "チーズトッピング"
+        click_button "家ラーメンを更新する"
+        expect(page).to have_content "家ラーメンが更新されました"
+      end
+
+      it "無効なデータで更新すると更新失敗のフラッシュが表示されること" do
+        fill_in "商品名", with: ""
+        click_button "家ラーメンを更新する"
+        expect(page).to have_content "更新に失敗しました"
+        expect(page).to have_content "商品名を入力してください"
+      end
+    end
+  end
 end

@@ -1,11 +1,10 @@
-<% provide(:title, "家ラーメン投稿") %>
+<% provide(:title, "家ラーメン編集") %>
 <div class="row justify-content-center">
   <div class="col-md-10 noodle_form">
-    <h1>家ラーメン投稿</h1>
+    <h1>家ラーメン編集</h1>
     <%= form_with(model: @noodle, local: true) do |f| %>
       <%= render "noodles_form", f:f %>
-    <%= f.submit "家ラーメンを投稿する", class: 'btn btn-block' %>
+    <%= f.submit "家ラーメンを更新する", class: 'btn btn-block' %>
    <% end %>
   </div>
 </div>
-

@@ -6,13 +6,12 @@ RSpec.describe "Noodles", type: :request do
 
   context "ログインしている場合" do
     before do
-      log_in(user)
       get new_noodle_path
+      log_in(user)
     end
 
-    it "正常なレスポンスを返すこと" do
-      expect(response).to have_http_status "200"
-      expect(response).to render_template('noodles/new')
+    it "フレンドリーフォワーディングであること" do
+      expect(response).to redirect_to new_noodle_path
     end
 
     it "有効なデータで投稿できること" do
