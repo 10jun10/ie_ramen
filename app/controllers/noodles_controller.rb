@@ -13,7 +13,7 @@ class NoodlesController < ApplicationController
     @noodle = current_user.noodles.build(noodle_params)
     if @noodle.save
       flash[:success] = "家ラーメンが投稿されました"
-      redirect_to root_path
+      redirect_to noodle_path(@noodle)
     else
       flash.now[:danger] = "投稿に失敗しました"
       render :new
@@ -21,6 +21,7 @@ class NoodlesController < ApplicationController
   end
 
   def show
+    @noodle = Noodle.find(params[:id])
   end
 
   private

@@ -235,4 +235,11 @@ footer {
   background-color: #f60;
   color: white;
 }
+
+.noodle_show {
+  margin: 30px 0;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+}
 /*# sourceMappingURL=application.css.map */

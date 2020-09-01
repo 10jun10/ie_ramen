@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Noodles", type: :request do
   let!(:user) { create(:user) }
-  let!(:noodle) { create(:noodle, user: user) }
+  let!(:noodle) {create(:noodle, user: user)}
 
   context "ログインしている場合" do
     before do
@@ -16,22 +16,22 @@ RSpec.describe "Noodles", type: :request do
     end
 
     it "有効なデータで投稿できること" do
-      expect {
-        post noodles_path, params: { noodle: { name: "蒙古タンメン",
-                                               maker: "",
-                                               place: "セブンイレブン",
-                                               eat: "チーズのトッピング" } }
-      }      .to change(Noodle, :count).by(1)
-      expect(response).to redirect_to root_path
+      expect { post noodles_path, params: { noodle: { name: "蒙古タンメン",
+                                                     maker: "",
+                                                     place: "セブンイレブン",
+                                                     eat: "チーズのトッピング"
+      } } }.to change(Noodle, :count).by(1)
+      follow_redirect!
+      expect(response).to render_template('noodles/show')
     end
 
     it "無効なデータだと投稿できないこと" do
-      expect {
-        post noodles_path, params: { noodle: { name: "",
-                                               maker: "日清食品",
-                                               place: "セブンイレブン",
-                                               eat: "チーズトッピング" } }
-      }      .to change(Noodle, :count).by(0)
+      expect { post noodles_path, params: { noodle: { name: "",
+                                                     maker: "日清食品",
+                                                     place: "セブンイレブン",
+                                                     eat: "チーズトッピング"
+
+      } } }.to change(Noodle, :count).by(0)
       expect(response).to render_template("noodles/new")
     end
   end

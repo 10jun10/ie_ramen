@@ -62,4 +62,24 @@ RSpec.describe "Noodles", type: :system do
       end
     end
   end
+
+  describe "詳細ページ" do
+    before do
+      visit noodle_path(noodle)
+    end
+
+    context "レイアウト" do
+      it "正しいタイトルが表示されること" do
+        expect(page).to have_title full_title("#{noodle.name}")
+      end
+      
+      it "正しい情報が表示されること" do
+        expect(page).to have_content noodle.name
+        expect(page).to have_content noodle.maker
+        expect(page).to have_content noodle.eat
+        expect(page).to have_content noodle.created_at.strftime("%Y-%m-%d/%H:%M")
+        expect(page).to have_content noodle.user.name
+      end
+    end
+  end
 end
