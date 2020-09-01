@@ -29,7 +29,6 @@ RSpec.describe "ユーザーの削除", type: :request do
       expect(response).to have_http_status "302"
       expect(response).to redirect_to root_path
     end
-
   end
 
   context "料理と紐づくユーザーが削除された場合" do

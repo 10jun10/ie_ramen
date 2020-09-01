@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:admin_user) { create(:user, :admin) }
 
   describe "アカウント一覧ページ" do
@@ -54,6 +55,7 @@ RSpec.describe "Users", type: :system do
   describe "プロフィール" do
     before do
       log_in_as(user)
+      create_list(:noodle, 10, user: user)
       visit user_path(user)
     end
 
@@ -67,6 +69,25 @@ RSpec.describe "Users", type: :system do
 
     it "削除のリンクが有ること" do
       expect(page).to have_link "削除"
+    end
+
+    context "ラーメンの投稿数が表示されること" do
+      it "自分のページの場合" do
+        expect(page).to have_content "あなたの食べた家ラーメン(#{user.noodles.count})"
+      end
+
+      it "他人のページの場合" do
+        visit user_path(other_user)
+        expect(page).to have_content "#{other_user.name}さんの食べた家ラーメン(#{other_user.noodles.count})"
+      end
+    end
+
+    it "ラーメン情報が表示されていること" do
+      Noodle.take(10).each do |n|
+        expect(page).to have_link n.name
+        expect(page).to have_link n.user.name
+        expect(page).to have_content n.created_at.strftime("%Y-%m-%d/%H:%M")
+      end
     end
   end
 
