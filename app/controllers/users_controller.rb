@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @noodles = @user.noodles
+    @noodles = @user.noodles.order(id: :desc)
   end
 
   def edit
