@@ -17,4 +17,7 @@ FactoryBot.define do
   trait :three_days_ago do
     created_at { 3.day.ago }
   end
+  trait :image do
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/support/test.jpeg')) }
+  end
 end

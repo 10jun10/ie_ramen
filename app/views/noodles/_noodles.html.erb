@@ -2,15 +2,16 @@
   <% @noodles.each do |noodle| %>
     <li>
       <div class="row">
-        <div class="col-sm-4">
-          <%= noodle.image %>
-          画像が入る
+        <div class="col-md-4">
+          <% if noodle.image? %>
+            <%= image_tag(noodle.image.to_s, size: '200x200') %>
+          <% else %>
+            <%= image_tag 'default.png', size: '200x200' %>
+          <% end %>
         </div>
-        <div class="col-sm-8 ">
+        <div class="col-md-7 offset-md-1">
           <p><%= link_to noodle.name, "#{noodle_path(noodle)}" %><span><%= noodle.maker %></span><p>
-          <div class="noodle_user_info">
-            <p text-right><small>投稿日:<%= noodle.created_at.strftime("%Y-%m-%d/%H:%M") %> 投稿者:<%= link_to noodle.user.name, user_path(noodle.user) %>さん</small></p>
-          </div>
+          <p class="noodle_user_info"><small>投稿日:<%= noodle.created_at.strftime("%Y-%m-%d/%H:%M") %> 投稿者:<%= link_to noodle.user.name, user_path(noodle.user) %>さん</small></p>
         </div>
       </div>
     </li>

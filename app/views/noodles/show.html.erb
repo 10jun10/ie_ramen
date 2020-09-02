@@ -1,13 +1,16 @@
 <% provide(:title, "#{@noodle.name}") %>
 <div class="row justify-content-center">
-  <div class="col-sm-10 noodle_show">
+  <div class="col-md-10 noodle_show">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <p><b><%= @noodle.name %></b></p>
-        <%= @noodle.image %>
-        画像が入る
+        <% if @noodle.image? %>
+            <%= image_tag(@noodle.image.to_s, size: '250x250') %>
+          <% else %>
+            <%= image_tag 'default.png', size: '200x200' %>
+          <% end %>
       </div>
-      <div class="col-sm-8 ">
+      <div class="col-md-7 offset-md-1 intro">
         <p>メーカー:<%= @noodle.maker %></p>
         <p>購入したお店:<%= @noodle.place %></p>
         <p>美味しい食べ方:<%= @noodle.eat %></p>
@@ -18,7 +21,7 @@
                               data: { confirm: "本当に削除しますか？" } %>
           <% end %>
         <% end %>
-        <p class="text-right"><small>投稿日:<%= @noodle.created_at.strftime("%Y-%m-%d/%H:%M") %> 投稿者:<%= link_to @noodle.user.name, user_path(@noodle.user) %>さん</small></p>
+        <p class="noodle_user_info"><small>投稿日:<%= @noodle.created_at.strftime("%Y-%m-%d/%H:%M") %> 投稿者:<%= link_to @noodle.user.name, user_path(@noodle.user) %>さん</small></p>
       </div>
     </div>
   </div>
