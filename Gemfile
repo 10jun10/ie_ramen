@@ -17,6 +17,8 @@ gem 'faker'
 gem 'devise'
 gem 'jquery-rails', '4.3.1'
 gem 'kaminari'
+gem 'carrierwave'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

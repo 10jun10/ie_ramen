@@ -114,7 +114,7 @@ footer {
   height: 180px;
 }
 
-.user_prof p {
+.user_prof .user_intro {
   padding: 30px 50px 60px;
 }
 
@@ -126,17 +126,17 @@ footer {
 
 .user_prof .user_noodles ul li {
   border-top: 1px dotted #ababab;
+  padding: 10px 0;
 }
 
-.user_prof .user_noodles .btn {
-  position: fixed;
-  top: 40%;
-  width: 100px;
-  height: 100px;
-  background: #f60;
-  color: white;
-  border-radius: 100%;
-  line-height: 80px;
+.user_prof .user_noodles ul li .intro {
+  position: relative;
+}
+
+.user_prof .user_noodles ul li .intro .post_day {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .edit_form {
@@ -185,6 +185,11 @@ footer {
 
 .noodles_index ul li {
   border-top: 1px dotted #ababab;
+  padding: 10px 0;
+}
+
+.noodles_index ul li .noodle_user_info {
+  text-align: right;
 }
 
 .noodles_index .btn {
@@ -199,10 +204,6 @@ footer {
   line-height: 80px;
 }
 
-.noodles_index .noodle_user_info {
-  text-align: right;
-}
-
 .noodle_form {
   margin: 30px 0;
   background-color: white;
@@ -212,24 +213,6 @@ footer {
 
 .noodle_form h2 {
   text-align: center;
-}
-
-.noodle_form .gravatar {
-  text-align: center;
-}
-
-.noodle_form .gravatar img {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-}
-
-.noodle_form .gravatar p {
-  margin-bottom: 0;
-}
-
-.noodle_form .gravatar a {
-  font-size: .8rem;
 }
 
 .noodle_form label {
@@ -250,5 +233,9 @@ footer {
   background-color: white;
   border-radius: 4px;
   padding: 10px;
+}
+
+.noodle_show .noodle_user_info {
+  text-align: right;
 }
 /*# sourceMappingURL=application.css.map */

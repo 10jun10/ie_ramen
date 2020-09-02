@@ -4,6 +4,8 @@ RSpec.describe "ラーメン編集", type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:noodle) { create(:noodle, user: user) }
+  let(:image_path) { File.join(Rails.root, 'spec/support/test.jpeg') }
+  let(:image) { Rack::Test::UploadedFile.new(image_path) }
 
   context "許可されたユーザーの場合" do
     it "正常な更新されること" do
@@ -32,7 +34,8 @@ RSpec.describe "ラーメン編集", type: :request do
         patch noodle_path(noodle), params: { noodle: { name: "どん兵衛",
                                                        maker: "日清食品",
                                                        place: "西友",
-                                                       eat: "３分で食べる" } }
+                                                       eat: "３分で食べる",
+                                                       image: image } }
         expect(response).to have_http_status "302"
         expect(response).to redirect_to root_path
       end

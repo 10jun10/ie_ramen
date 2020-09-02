@@ -42,10 +42,11 @@ class NoodlesController < ApplicationController
     if current_user.admin? || current_user?(@noodle.user)
       @noodle.destroy
       flash[:success] = "家ラーメンが削除されました"
-      redirect_back(fallback_location: root_url)
+      # redirect_back(fallback_location: root_path)
+      redirect_to root_path
     else
       flash.now[:danger] = "他人の家ラーメンは削除できません"
-      redirect_to root_url
+      redirect_to root_path
     end
   end
 

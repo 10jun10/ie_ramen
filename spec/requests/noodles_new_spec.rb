@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "ラーメン投稿", type: :request do
   let!(:user) { create(:user) }
   let!(:noodle) { create(:noodle, user: user) }
+  let(:image_path) { File.join(Rails.root, 'spec/support/test.jpeg') }
+  let(:image) { Rack::Test::UploadedFile.new(image_path) } 
 
   context "ログインしている場合" do
     before do
@@ -19,7 +21,8 @@ RSpec.describe "ラーメン投稿", type: :request do
         post noodles_path, params: { noodle: { name: "蒙古タンメン",
                                                maker: "",
                                                place: "セブンイレブン",
-                                               eat: "チーズのトッピング" } }
+                                               eat: "チーズのトッピング",
+                                               image: image } }
       }      .to change(Noodle, :count).by(1)
       follow_redirect!
       expect(response).to render_template('noodles/show')
