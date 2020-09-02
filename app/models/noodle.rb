@@ -5,5 +5,5 @@ class Noodle < ApplicationRecord
   validates :maker, length: { maximum: 30 }
   validates :place, length: { maximum: 30 }
   validates :eat, length: { maximum: 200 }
-  mount_uploader :image, ImageUploader 
+  mount_uploader :image, ImageUploader
 end
