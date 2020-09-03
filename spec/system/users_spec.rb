@@ -4,6 +4,7 @@ RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:admin_user) { create(:user, :admin) }
+  let!(:noodle) { create(:noodle, user: user) }
 
   describe "アカウント一覧ページ" do
     it "ページネーションが適用されていること" do
@@ -124,5 +125,78 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content "メールアドレスは不正な値です"
       end
     end
+  end
+
+  context "いいね一覧ページ" do
+    before do
+      log_in_as(user)
+    end
+
+    it "正しいタイトルが表示されることを" do
+      visit favorites_path
+      expect(page).to have_title full_title("いいね")
+    end
+    
+    it "いいね情報が表示されうこと" do
+      visit favorites_path
+      expect(page).to have_content "いいね (0)"
+      user.favorite(noodle)
+      visit favorites_path
+      expect(page).to have_content "いいね (1)"
+      expect(page).to have_link noodle.name, href: noodle_path(noodle)
+      expect(page).to have_content noodle.created_at.strftime("%Y-%m-%d/%H:%M")
+      expect(page).to have_link noodle.user.name, href: user_path(noodle.user)
+    end
+  end
+
+  context "いいね機能の動き" do
+    before do
+      log_in_as(user)
+    end
+
+    it "いいね登録と解除ができること" do
+      expect(user.favorite?(noodle)).to be_falsey
+      user.favorite(noodle)
+      expect(user.favorite?(noodle)).to be_truthy
+      user.unfavorite(noodle)
+      expect(user.favorite?(noodle)).to be_falsey
+    end
+
+    it "トップページでいいねの取り外しができること" do
+      visit root_path
+      link = find('.like')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/create"
+      link.click
+      link = find('.unlike')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/destroy"
+      link.click
+      link = find('.like')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/create"
+    end
+
+    it "投稿詳細でいいねの取り外しができること" do
+      visit noodle_path(noodle)
+      link = find('.like')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/create"
+      link.click
+      link = find('.unlike')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/destroy"
+      link.click
+      link = find('.like')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/create"
+    end
+
+    it "ユーザー詳細画面でいいねを取り外しができること" do
+      visit user_path(user)
+      link = find('.like')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/create"
+      link.click
+      link = find('.unlike')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/destroy"
+      link.click
+      link = find('.like')
+      expect(link[:href]).to include "/favorites/#{noodle.id}/create"
+    end
+
   end
 end

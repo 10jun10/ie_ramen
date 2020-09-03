@@ -8,6 +8,8 @@
           <% else %>
             <%= image_tag 'default.png', size: '200x200' %>
           <% end %>
+          <% @noodle = noodle %>
+          <%= render 'users/favorite_form'%>
         </div>
         <div class="col-md-7 offset-md-1">
           <p><%= link_to noodle.name, "#{noodle_path(noodle)}" %><span><%= noodle.maker %></span><p>
