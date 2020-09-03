@@ -27,6 +27,7 @@ ja:
         place: 購入したお店
         eat: おすすめの食べ方
         image: 画像
+        content: コメント
       comment:
         user_id: コメント投稿者のID
         noodle_id: コメントされたラーメンのID 

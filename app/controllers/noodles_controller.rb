@@ -23,6 +23,9 @@ class NoodlesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+  
+    @comments = @noodle.comments.order(id: :desc)
   end
 
   def edit

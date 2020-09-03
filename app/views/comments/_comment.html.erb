@@ -1,0 +1,14 @@
+<% @comments.each do |comment| %>
+  <li id="comment-<%= comment.id %>">
+    <div class="user">
+      <div>
+        <%= gravatar_for comment.user, size: 50 %>
+        <%= link_to comment.user.name, user_path(comment.user) %>
+      </div>
+      <div class="post_day">
+        <small><%= comment.created_at.strftime("%Y-%m-%d/%H:%M") %></small>
+      </div>
+    </div>
+    <p class="comment"><%= comment.content %></p>
+  </li>
+<% end %>
