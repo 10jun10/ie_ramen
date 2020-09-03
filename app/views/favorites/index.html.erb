@@ -1,0 +1,13 @@
+<% provide(:title, "いいね") %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10 noodle_show">
+      <h3>いいね (<%= @favorites.count %>)</h3>
+      <% if @favorites.present? %>
+        <ul class="favorites">
+          <%= render 'favorite' %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
