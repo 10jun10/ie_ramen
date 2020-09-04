@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
+  before_action :set_search
   include SessionsHelper
+
+  def set_search
+    @search = Noodle.ransack(params[:q])
+    @noodles = @search.result(distinct: true)
+  end
 
   private
 
