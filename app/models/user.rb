@@ -18,7 +18,7 @@ class User < ApplicationRecord
   def unfavorite(noodle)
     Favorite.find_by(user_id: id, noodle_id: noodle.id).destroy
   end
-  
+
   def favorite?(noodle)
     !Favorite.find_by(user_id: id, noodle_id: noodle.id).nil?
   end

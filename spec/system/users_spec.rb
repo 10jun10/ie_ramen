@@ -136,7 +136,7 @@ RSpec.describe "Users", type: :system do
       visit favorites_path
       expect(page).to have_title full_title("いいね")
     end
-    
+
     it "いいね情報が表示されうこと" do
       visit favorites_path
       expect(page).to have_content "いいね (0)"
@@ -197,6 +197,5 @@ RSpec.describe "Users", type: :system do
       link = find('.like')
       expect(link[:href]).to include "/favorites/#{noodle.id}/create"
     end
-
   end
 end

@@ -1,5 +1,5 @@
 class NoodlesController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :show ,:edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :set_noodle, only: [:show, :edit, :update, :destroy]
 
@@ -24,7 +24,7 @@ class NoodlesController < ApplicationController
 
   def show
     @comment = Comment.new
-  
+
     @comments = @noodle.comments.order(id: :desc)
   end
 

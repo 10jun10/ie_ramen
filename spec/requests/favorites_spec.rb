@@ -13,25 +13,25 @@ RSpec.describe "いいね機能", type: :request do
       it "いいねができること" do
         expect {
           post "/favorites/#{noodle.id}/create"
-               }.to change(Favorite, :count).by(1)
+        }.to change(Favorite, :count).by(1)
       end
       it "いいねができることajax" do
         expect {
           post "/favorites/#{noodle.id}/create", xhr: true
-               }.to change(Favorite, :count).by(1)
+        }.to change(Favorite, :count).by(1)
       end
 
       it "いいね解除ができること" do
         user.favorite(noodle)
         expect {
           delete "/favorites/#{noodle.id}/destroy", xhr: true
-               }.to change(Favorite, :count).by(-1)
+        }.to change(Favorite, :count).by(-1)
       end
       it "いいね解除ができることajax" do
         user.favorite(noodle)
         expect {
           delete "/favorites/#{noodle.id}/destroy"
-               }.to change(Favorite, :count).by(-1)
+        }.to change(Favorite, :count).by(-1)
       end
     end
 
@@ -39,14 +39,14 @@ RSpec.describe "いいね機能", type: :request do
       it "いいねできずにリダイレクトされること" do
         expect {
           post "/favorites/#{noodle.id}/create"
-               }.not_to change(Favorite, :count)
+        }.not_to change(Favorite, :count)
         expect(response).to redirect_to login_path
       end
 
       it "いいね解除できずにリダイレクトされること" do
         expect {
           delete "/favorites/#{noodle.id}/destroy"
-               }.not_to change(Favorite, :count)
+        }.not_to change(Favorite, :count)
           expect(response).to redirect_to login_path
       end
     end

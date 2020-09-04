@@ -90,13 +90,11 @@ RSpec.describe "Noodles", type: :system do
           expect(page).to have_content "とても美味しいです"
           expect(page).to have_content "コメントを追加しました"
           click_link "delete_comment"
-          expect(page).to_not have_content "とても美味しいです"
+          expect(page).not_to have_content "とても美味しいです"
           expect(page).to have_content "コメントを削除しました"
         end
       end
     end
-
-
   end
 
   describe "編集ページ" do

@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "コメント", type: :request do
-  let!(:user) { create(:user)}
-  let!(:other_user) { create(:user)}
-  let!(:noodle) { create(:noodle)}
-  let!(:comment) { create(:comment, user_id: user.id, noodle: noodle)}
+  let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
+  let!(:noodle) { create(:noodle) }
+  let!(:comment) { create(:comment, user_id: user.id, noodle: noodle) }
 
   context "コメント投稿" do
     context "ログインしている場合" do
@@ -16,14 +16,14 @@ RSpec.describe "コメント", type: :request do
         expect {
           post comments_path, params: { noodle_id: noodle.id,
                                         comment: { content: "美味しいです" } }
-      }.to change(noodle.comments, :count).by(1)
+        }.to change(noodle.comments, :count).by(1)
       end
 
       it "コメントが空だと投稿できないこと" do
         expect {
           post comments_path, params: { noodle_id: noodle.id,
                                         comment: { content: "" } }
-      }.to_not change(noodle.comments, :count)
+        }.not_to change(noodle.comments, :count)
       end
     end
 
@@ -32,7 +32,7 @@ RSpec.describe "コメント", type: :request do
         expect {
           post comments_path, params: { noodle_id: noodle.id,
                                         comment: { content: "美味しいです" } }
-      }.to_not change(noodle.comments, :count)
+        }.not_to change(noodle.comments, :count)
       expect(response).to redirect_to login_path
       end
     end
@@ -54,19 +54,18 @@ RSpec.describe "コメント", type: :request do
           log_in(other_user)
           expect {
               delete comment_path(comment)
-          }.to_not change(noodle.comments, :count)
+          }.not_to change(noodle.comments, :count)
         end
       end
-      
     end
 
     context "ログインしていない場合" do
       it "削除失敗し、ログイン画面にリダイレクトすること" do
         expect {
           delete comment_path(comment)
-      }.to_not change(noodle.comments, :count)
+        }.not_to change(noodle.comments, :count)
       expect(response).to redirect_to login_path
       end
     end
   end
-end 
+end

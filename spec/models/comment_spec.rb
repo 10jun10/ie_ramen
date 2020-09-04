@@ -26,7 +26,7 @@ RSpec.describe Comment, type: :model do
     it "コメントが100字を超えるとエラーメッセージが表示されることこと" do
       comment.content = "a" * 101
       comment.valid?
-      expect(comment.errors[:content]).to include("は100文字以内で入力してください") 
+      expect(comment.errors[:content]).to include("は100文字以内で入力してください")
     end
   end
 end
