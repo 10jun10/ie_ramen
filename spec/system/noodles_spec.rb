@@ -80,8 +80,23 @@ RSpec.describe "Noodles", type: :system do
         expect(page).to have_content noodle.eat
         expect(page).to have_content noodle.created_at.strftime("%Y-%m-%d/%H:%M")
         expect(page).to have_content noodle.user.name
+        expect(page).to have_content noodle.comments.count
+      end
+
+      context "コメント" do
+        it "コメントの追加・削除ができること" do
+          fill_in "コメント", with: "とても美味しいです"
+          click_button "送信"
+          expect(page).to have_content "とても美味しいです"
+          expect(page).to have_content "コメントを追加しました"
+          click_link "delete_comment"
+          expect(page).to_not have_content "とても美味しいです"
+          expect(page).to have_content "コメントを削除しました"
+        end
       end
     end
+
+
   end
 
   describe "編集ページ" do

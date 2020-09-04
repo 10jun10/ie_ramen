@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="comment">
-      <h3 class="title-comment">コメント (<%= "#{@noodle.comments.count}" %>)</h3>
+      <h3>コメント (<%= "#{@noodle.comments.count}" %>)</h3>
       <% if @comments.any? %>
         <ul class="comments"> 
           <%= render "comments/comment" %>

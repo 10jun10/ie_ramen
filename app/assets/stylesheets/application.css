@@ -254,6 +254,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .noodle_show .comments li .user .post_day {
@@ -268,6 +269,15 @@ footer {
 
 .noodle_show .comments li a {
   font-size: 20px;
+}
+
+.noodle_show .comments li .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .like-btn-unlike {

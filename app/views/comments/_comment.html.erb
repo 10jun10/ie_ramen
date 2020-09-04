@@ -10,5 +10,13 @@
       </div>
     </div>
     <p class="comment"><%= comment.content %></p>
+    <% if current_user.id == comment.user_id || current_user.id == @noodle.user_id %>
+      <div class="icon">
+        <%= link_to comment_path(comment), method: :delete,
+                                        data: { confirm: "本当に削除しますか？" }, id: "delete_comment" do %>    
+          <i class="fas fa-trash-alt"></i>                          
+        <% end %>       
+      </div>                    
+    <% end %>
   </li>
 <% end %>
