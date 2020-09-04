@@ -1,0 +1,10 @@
+<div class="comment_form">
+  <%= form_with(model: @comment, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <%= f.hidden_field noodle_id: @noodle.id %>
+    <%= hidden_field_tag :noodle_id, @noodle.id %>
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder: "コメント", class: "form-control" %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>

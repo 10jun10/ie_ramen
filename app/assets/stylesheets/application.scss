@@ -229,6 +229,34 @@ footer {
   .noodle_user_info {
     text-align: right;
   }
+  .comments {
+    padding: 0;
+    li {
+      list-style:none;
+      border-top: 1px dotted #ababab;
+      padding-top: 10px;
+      .user {
+        display: flex;
+        position: relative;
+        margin-bottom: 16px;
+        .post_day {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+      }
+      img {
+        border-radius: 50%;
+      }
+      a {
+        font-size: 20px;
+      }
+      .icon {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
 }
 .like-btn-unlike {
   color: red;

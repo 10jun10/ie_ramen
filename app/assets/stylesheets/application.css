@@ -239,6 +239,47 @@ footer {
   text-align: right;
 }
 
+.noodle_show .comments {
+  padding: 0;
+}
+
+.noodle_show .comments li {
+  list-style: none;
+  border-top: 1px dotted #ababab;
+  padding-top: 10px;
+}
+
+.noodle_show .comments li .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.noodle_show .comments li .user .post_day {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.noodle_show .comments li img {
+  border-radius: 50%;
+}
+
+.noodle_show .comments li a {
+  font-size: 20px;
+}
+
+.noodle_show .comments li .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .like-btn-unlike {
   color: red;
 }
