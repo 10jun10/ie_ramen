@@ -28,6 +28,7 @@ ja:
         eat: おすすめの食べ方
         image: 画像
         content: コメント
+        taste: 味
       comment:
         user_id: コメント投稿者のID
         noodle_id: コメントされたラーメンのID 

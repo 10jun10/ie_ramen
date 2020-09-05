@@ -60,7 +60,7 @@ class NoodlesController < ApplicationController
   end
 
   def noodle_params
-    params.require(:noodle).permit(:name, :maker, :place, :eat, :image)
+    params.require(:noodle).permit(:name, :maker, :place, :taste, :eat, :image)
   end
 
   def correct_user

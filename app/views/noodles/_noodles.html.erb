@@ -13,6 +13,7 @@
         </div>
         <div class="col-md-7 offset-md-1">
           <p><%= link_to noodle.name, "#{noodle_path(noodle)}" %><span><%= noodle.maker %></span><p>
+          <p><%= noodle.taste %></p>
           <p class="noodle_user_info"><small>投稿日:<%= noodle.created_at.strftime("%Y-%m-%d/%H:%M") %> 投稿者:<%= link_to noodle.user.name, user_path(noodle.user) %>さん</small></p>
         </div>
       </div>

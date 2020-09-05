@@ -14,6 +14,7 @@
       <div class="col-md-7 offset-md-1 intro">
         <p>メーカー:<%= @noodle.maker %></p>
         <p>購入したお店:<%= @noodle.place %></p>
+        <p>味:<%= @noodle.taste %></p>
         <p>美味しい食べ方:<%= @noodle.eat %></p>
         <% if current_user == @noodle.user %>
           <%= link_to "編集", edit_noodle_path(@noodle)  %> | 

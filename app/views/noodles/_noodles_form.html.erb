@@ -17,7 +17,11 @@
   <%= f.text_field :place, class: "form-control", placeholder: "例）セブンイレブン" %>
 </div>
 <div class="form-group">
-  <%= f.label :eat %>
+  <%= f.label :taste %> <span class="need">※</span>
+  <%= f.text_field :taste, class: "form-control", placeholder: "例）味噌ラーメン　辛い　タンメン" %>
+</div>
+<div class="form-group">
+  <%= f.label :eat %> 
   <%= f.text_area :eat, class: "form-control", placeholder: "家ラーメンをより美味しく食べる食べ方があれば教えて下さい。", rows: 5 %>
 </div>
       

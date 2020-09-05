@@ -3,6 +3,7 @@ FactoryBot.define do
     name { "蒙古タンメン" }
     maker { "日清食品" }
     place { "セブンイレブン" }
+    taste { "激辛味噌ラーメン" }
     eat { "納豆と一緒に食べる" }
     association :user
     created_at { Time.current }

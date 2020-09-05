@@ -174,7 +174,7 @@ footer {
 
 
 // ラーメン投稿
-// 一覧
+// ラーメン一覧
 .noodles_index, .noodles_search {
   ul {
     list-style: none;
@@ -203,7 +203,7 @@ footer {
 }
 
 
-// 投稿・編集
+// ラーメン投稿・編集
 .noodle_form {
   margin: 30px 0;
   background-color: white;
@@ -223,9 +223,12 @@ footer {
   .delete_btn {
     background-color: gray;
   }
+  .need {
+    color: red;
+  }
 }
 
-// 詳細
+// ラーメン詳細
 .noodle_show {
   margin: 30px 0;
   background-color: white;

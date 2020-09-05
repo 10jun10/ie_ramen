@@ -25,5 +25,6 @@ end
 
 12.times do |n|
   Noodle.create!(name: "蒙古タンメン",
+                 taste: "味噌ラーメン",
                  user_id: 1)
 end
