@@ -4,7 +4,7 @@ class NoodlesController < ApplicationController
   before_action :set_noodle, only: [:show, :edit, :update, :destroy]
 
   def index
-    @noodles = Noodle.order(id: :desc).page(params[:page]).per(10)
+    # @noodles = Noodle.order(id: :desc).page(params[:page]).per(10)
   end
 
   def new

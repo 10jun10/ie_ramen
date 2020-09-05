@@ -4,22 +4,41 @@ RSpec.describe "Noodles", type: :system do
   let!(:user) { create(:user) }
   let!(:noodle) { create(:noodle, user: user) }
 
-  describe "ラーメン一覧ページ" do
-    it "正しいタイトルが表示されること" do
-      visit root_path
-      expect(page).to have_title full_title
-    end
+  it "検索窓が表示されていること" do
+    visit root_path
+    expect(page).to have_css "form#noodle_search"
+    visit about_path
+    expect(page).to have_css "form#noodle_search"
+    visit new_user_path
+    expect(page).to have_css "form#noodle_search"
+    visit signup_path
+    expect(page).to have_css "form#noodle_search"
+    log_in_as(user)
+    visit user_path(user)
+    expect(page).to have_css "form#noodle_search"
+    visit edit_user_path(user)
+    expect(page).to have_css "form#noodle_search"
+    visit noodles_path
+    expect(page).to have_css "form#noodle_search"
+    visit new_noodle_path 
+    expect(page).to have_css "form#noodle_search"
+    visit noodle_path(noodle)
+    expect(page).to have_css "form#noodle_search"
+    visit edit_noodle_path(noodle)
+    expect(page).to have_css "form#noodle_search"
+  end
 
-    it "ページネーションが表示されること" do
-      create_list(:noodle, 20, user: user)
-      visit root_path
-      expect(page).to have_css ".pagination"
-    end
+  it "検索機能が動くこと" do
+    create(:noodle, name: "蒙古タンメン")
 
-    it "ラーメン投稿用のリンクが表示されること" do
-      visit root_path
-      expect(page). to have_link "投稿", href: new_noodle_path
-    end
+    log_in_as(user)
+    visit root_path
+    fill_in "q_name_cont", with: "蒙古タンメン"
+    click_button "search_button"
+    expect(page).to have_content "「蒙古タンメン」の検索結果"
+    fill_in "q_name_cont", with: "チャルメラ"
+    click_button "search_button"
+    expect(page).to have_content "「チャルメラ」が含まれる家ラーメンはありません"
   end
 
   describe "ラーメン投稿ページ" do

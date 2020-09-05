@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def set_search
+    @search_word = params[:q][:name_cont] if params[:q]
     @search = Noodle.ransack(params[:q])
-    @noodles = @search.result(distinct: true)
+    @noodles = @search.result(distinct: true).page(params[:page]).per(10)
   end
 
   private
