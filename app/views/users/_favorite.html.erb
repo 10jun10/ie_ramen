@@ -1,3 +1,3 @@
 <%= link_to "/favorites/#{@noodle.id}/create", method: :post, class: "like", remote: true do %>
-  <div class="like-btn-like"><i class="fa fa-heart"></i> いいね</div>
+  <div class="like-btn-like"><i class="fa fa-heart"></i> <%= @noodle.favorites.count %></div>
 <% end %>
