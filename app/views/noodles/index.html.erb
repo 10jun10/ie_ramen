@@ -1,5 +1,11 @@
-<h3>家ラーメン一覧(<%= @noodles.count %>)</h3>
-<div class="noodles_index">
+<% provide(:title, "#{@search_word}") %>
+<p>「<%= @search_word %>」の検索結果</p>
+<% if @noodles.count == 0 %>
+  <p>「<%= @search_word %>」が含まれる家ラーメンはありません</p>
+<% else %>
+  <p><%= @noodles.count %>件ヒットしました</p>
+<% end %>
+<div class="noodles_search">
   <div class="row">
     <div class="col-md-9">
       <%= render "noodles/noodles" %>

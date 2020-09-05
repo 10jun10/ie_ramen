@@ -177,22 +177,22 @@ footer {
   color: white;
 }
 
-.noodles_index ul {
+.noodles_index ul, .noodles_search ul {
   list-style: none;
   width: 100%;
   padding: 0;
 }
 
-.noodles_index ul li {
+.noodles_index ul .noodle_list, .noodles_search ul .noodle_list {
   border-top: 1px dotted #ababab;
   padding: 10px 0;
 }
 
-.noodles_index ul li .noodle_user_info {
+.noodles_index ul .noodle_list .noodle_user_info, .noodles_search ul .noodle_list .noodle_user_info {
   text-align: right;
 }
 
-.noodles_index .btn {
+.noodles_index .btn, .noodles_search .btn {
   position: fixed;
   top: 70%;
   right: 10%;

@@ -30,7 +30,12 @@
     li {
       padding-left: 10px;
     }
+    // .noodle_search {
+    //   display: block;
+    //   margin: 0 auto;
+    // }
   }
+
 
   .dropdown-menu {
     a {
@@ -170,12 +175,12 @@ footer {
 
 // ラーメン投稿
 // 一覧
-.noodles_index {
+.noodles_index, .noodles_search {
   ul {
     list-style: none;
     width: 100%;
     padding: 0;
-    li {
+    .noodle_list {
       border-top: 1px dotted #ababab;
       padding: 10px 0;
       .noodle_user_info {
