@@ -21,6 +21,7 @@ RSpec.describe "ラーメン投稿", type: :request do
         post noodles_path, params: { noodle: { name: "蒙古タンメン",
                                                maker: "",
                                                place: "セブンイレブン",
+                                               taste: "味噌ラーメン",
                                                eat: "チーズのトッピング",
                                                image: image } }
       }      .to change(Noodle, :count).by(1)
@@ -28,11 +29,23 @@ RSpec.describe "ラーメン投稿", type: :request do
       expect(response).to render_template('noodles/show')
     end
 
-    it "無効なデータだと投稿できないこと" do
+    it "無効なデータ(商品名なし)だと投稿できないこと" do
       expect {
         post noodles_path, params: { noodle: { name: "",
                                                maker: "日清食品",
                                                place: "セブンイレブン",
+                                               taste: "味噌ラーメン",
+                                               eat: "チーズトッピング" } }
+      }      .to change(Noodle, :count).by(0)
+      expect(response).to render_template("noodles/new")
+    end
+
+    it "無効なデータ（味なし）だと投稿できないこと" do
+      expect {
+        post noodles_path, params: { noodle: { name: "蒙古タンメン",
+                                               maker: "日清食品",
+                                               place: "セブンイレブン",
+                                               taste: "",
                                                eat: "チーズトッピング" } }
       }      .to change(Noodle, :count).by(0)
       expect(response).to render_template("noodles/new")

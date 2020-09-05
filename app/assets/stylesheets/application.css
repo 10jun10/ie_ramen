@@ -228,6 +228,10 @@ footer {
   background-color: gray;
 }
 
+.noodle_form .need {
+  color: red;
+}
+
 .noodle_show {
   margin: 30px 0;
   background-color: white;

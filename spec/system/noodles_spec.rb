@@ -20,7 +20,7 @@ RSpec.describe "Noodles", type: :system do
     expect(page).to have_css "form#noodle_search"
     visit noodles_path
     expect(page).to have_css "form#noodle_search"
-    visit new_noodle_path 
+    visit new_noodle_path
     expect(page).to have_css "form#noodle_search"
     visit noodle_path(noodle)
     expect(page).to have_css "form#noodle_search"
@@ -65,6 +65,7 @@ RSpec.describe "Noodles", type: :system do
         fill_in "商品名", with: "蒙古タンメン"
         fill_in "メーカー", with: "日清食品"
         fill_in "購入したお店", with: "セブンイレブン"
+        fill_in "味", with: "辛い"
         fill_in "おすすめの食べ方", with: "チーズトッピング"
         click_button "家ラーメンを投稿する"
         expect(page).to have_content "家ラーメンが投稿されました"
@@ -96,6 +97,7 @@ RSpec.describe "Noodles", type: :system do
       it "正しい情報が表示されること" do
         expect(page).to have_content noodle.name
         expect(page).to have_content noodle.maker
+        expect(page).to have_content noodle.taste
         expect(page).to have_content noodle.eat
         expect(page).to have_content noodle.created_at.strftime("%Y-%m-%d/%H:%M")
         expect(page).to have_content noodle.user.name
@@ -128,6 +130,7 @@ RSpec.describe "Noodles", type: :system do
         expect(page).to have_content "商品名"
         expect(page).to have_content "メーカー"
         expect(page).to have_content "購入したお店"
+        expect(page).to have_content "味"
         expect(page).to have_content "おすすめの食べ方"
       end
     end
@@ -137,16 +140,24 @@ RSpec.describe "Noodles", type: :system do
         fill_in "商品名", with: "蒙古タンメン"
         fill_in "メーカー", with: "日清食品"
         fill_in "購入したお店", with: "セブンイレブン"
+        fill_in "味", with: "辛味"
         fill_in "おすすめの食べ方", with: "チーズトッピング"
         click_button "家ラーメンを更新する"
         expect(page).to have_content "家ラーメンが更新されました"
       end
 
-      it "無効なデータで更新すると更新失敗のフラッシュが表示されること" do
+      it "無効なデータ（商品名なし）で更新すると更新失敗のフラッシュが表示されること" do
         fill_in "商品名", with: ""
         click_button "家ラーメンを更新する"
         expect(page).to have_content "更新に失敗しました"
         expect(page).to have_content "商品名を入力してください"
+      end
+
+      it "無効なデータ（味なし）で更新すると更新失敗のフラッシュが表示されること" do
+        fill_in "味", with: ""
+        click_button "家ラーメンを更新する"
+        expect(page).to have_content "更新に失敗しました"
+        expect(page).to have_content "味を入力してください"
       end
     end
   end
