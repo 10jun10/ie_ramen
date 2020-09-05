@@ -49,6 +49,24 @@ RSpec.describe Noodle, type: :model do
       expect(noodle).to be_valid
     end
 
+    it "味が空だと無効であること" do
+      noodle.taste = ""
+      noodle.valid?
+      expect(noodle.errors[:taste]).to include("を入力してください")
+    end
+
+    it "味が50字以上だと無効であること" do
+      noodle.taste = "a" * 51
+      noodle.valid?
+      expect(noodle.errors[:taste]).to include("は50文字以内で入力してください")
+    end
+
+    it "味が50字以内だと有効であること" do
+      noodle.taste = "a" * 50
+      noodle.valid?
+      expect(noodle).to be_valid
+    end
+
     it "おすすめの食べ方が201字以上で無効あること" do
       noodle.eat = "a" * 201
       noodle.valid?
