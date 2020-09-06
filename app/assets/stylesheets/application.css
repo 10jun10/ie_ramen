@@ -29,8 +29,13 @@ header .navbar-nav li {
   padding-left: 10px;
 }
 
+header .dropdown-menu {
+  background-color: #f60;
+  border: 0;
+}
+
 header .dropdown-menu a {
-  color: #f60;
+  color: white;
 }
 
 footer {
