@@ -33,12 +33,15 @@ RSpec.describe "Noodles", type: :system do
 
     log_in_as(user)
     visit root_path
-    fill_in "q_name_cont", with: "蒙古タンメン"
+    fill_in "q_name_or_taste_cont", with: "蒙古タンメン"
     click_button "search_button"
     expect(page).to have_content "「蒙古タンメン」の検索結果"
-    fill_in "q_name_cont", with: "チャルメラ"
+    fill_in "q_name_or_taste_cont", with: "チャルメラ"
     click_button "search_button"
     expect(page).to have_content "「チャルメラ」が含まれる家ラーメンはありません"
+    fill_in "q_name_or_taste_cont", with: "味噌ラーメン"
+    click_button "search_button"
+    expect(page).to have_content "蒙古タンメン"
   end
 
   describe "ラーメン投稿ページ" do
