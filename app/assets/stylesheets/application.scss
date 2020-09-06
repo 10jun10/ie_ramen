@@ -236,6 +236,17 @@ footer {
   background-color: white;
   border-radius: 4px;
   padding: 10px;
+  .intro {
+    table {
+      tr {
+        border-bottom: 1px solid #EAEDED;
+      }
+      th {
+        width: 27%;
+        text-align: right;
+      }
+    }
+  }
   .noodle_user_info {
     text-align: right;
   }
