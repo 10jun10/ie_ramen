@@ -9,10 +9,13 @@
 
 ## 機能・技術
 * デザイン(Bootstrap,Sass)
-* 単体・統合テスト(RSpec,FactoryBot,Faker)
+* 単体・統合テスト(RSpec,FactoryBot,Capybara)
 * 静的解析ツール(RuboCop)
 * ページネーション(kaminari)
-* 投稿関連(いいね機能)
+* 投稿
+* いいね
++ コメント
 * 画像関連(CarrierWave)
+* 検索(ransack)
 
 
