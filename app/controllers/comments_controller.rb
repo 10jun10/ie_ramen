@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment = @noodle.comments.build(user_id: current_user.id, content: params[:comment][:content])
     if @comment.save
       flash[:success] = "コメントを追加しました"
+      @noodle.create_notification_comment!(current_user, @comment.id)
     else
       flash[:danger] = "コメント追加に失敗しました"
     end
