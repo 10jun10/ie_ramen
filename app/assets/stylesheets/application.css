@@ -244,6 +244,15 @@ footer {
   padding: 10px;
 }
 
+.noodle_show .intro table tr {
+  border-bottom: 1px solid #EAEDED;
+}
+
+.noodle_show .intro table th {
+  width: 27%;
+  text-align: right;
+}
+
 .noodle_show .noodle_user_info {
   text-align: right;
 }
