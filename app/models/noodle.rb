@@ -12,8 +12,10 @@ class Noodle < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   def create_notification_favorite!(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and noodle_id = ? and action = ?",
-                                current_user.id, user_id, id, 'favorite'])
+    temp = Notification.where([
+      "visitor_id = ? and visited_id = ? and noodle_id = ? and action = ?",
+      current_user.id, user_id, id, 'favorite',
+    ])
     if temp.blank?
       notification = current_user.active_notifications.new(
         noodle_id: id,
