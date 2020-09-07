@@ -37,7 +37,7 @@ class Noodle < ApplicationRecord
     save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
   end
 
-  def save_notification_comment!(current_user, comment_id, user_id)
+  def save_notification_comment!(current_user, comment_id, visited_id)
     notification = current_user.active_notifications.new(
       noodle_id: id,
       comment_id: comment_id,

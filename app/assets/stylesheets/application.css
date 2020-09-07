@@ -30,6 +30,10 @@ header nav .navbar-nav li {
   padding-left: 10px;
 }
 
+header nav .navbar-nav .on_notification a {
+  color: gold;
+}
+
 header .dropdown-menu {
   background-color: #f60;
   border: 0;
@@ -328,5 +332,24 @@ a.like, a.unlike {
 .favorites li {
   padding: 10px 0;
   border-top: 1px solid #e8e8e8;
+}
+
+.notification ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.notification ul li {
+  border-top: 1px dotted #ababab;
+  padding: 10px 0;
+}
+
+.notification ul li img {
+  border-radius: 50%;
+}
+
+.notification ul li .time {
+  text-align: right;
 }
 /*# sourceMappingURL=application.css.map */
