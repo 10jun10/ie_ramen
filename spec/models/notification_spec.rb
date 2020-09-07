@@ -26,5 +26,4 @@ RSpec.describe Notification, type: :model do
     notification.action = "aaaa"
     expect(notification).not_to be_valid
   end
-
 end
