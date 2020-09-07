@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get "favorites", to: "favorites#index"
   post "favorites/:noodle_id/create" => "favorites#create"
   delete "favorites/:noodle_id/destroy" => "favorites#destroy"
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   get :signup, to:'users#new'
   resources :users
   resources :noodles
+  resources :notifications, only: :index
   resources :comments, only: [:create, :destroy]
   # root 'noodles#index'
   root 'static_pages#top'

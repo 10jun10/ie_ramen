@@ -12,6 +12,7 @@ class FavoritesController < ApplicationController
       format.html { redirect_to request.referrer || root_path }
       format.js
     end
+    @noodle.create_notification_favorite!(current_user)
   end
 
   def destroy

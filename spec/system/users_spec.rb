@@ -5,6 +5,7 @@ RSpec.describe "Users", type: :system do
   let!(:other_user) { create(:user) }
   let!(:admin_user) { create(:user, :admin) }
   let!(:noodle) { create(:noodle, user: user) }
+  # let!(:other_noodle) { create(:noodle, user: other_user) }
 
   describe "アカウント一覧ページ" do
     it "ページネーションが適用されていること" do

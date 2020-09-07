@@ -1,0 +1,13 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<li>
+  <%= gravatar_for visitor, size: 50 %>
+  <%= link_to visitor.name, user_path(visitor) %>さんが
+  <% case notification.action %>
+  <% when 'favorite' then %>
+    <%= link_to notification.noodle.name, noodle_path(notification.noodle) %>にいいねしました
+  <% when 'comment' then %>
+    <%= link_to notification.noodle.name, noodle_path(notification.noodle) %>にコメントしました
+  <% end %>
+  <p class="time"><small><i class="far fa-clock"></i><%= time_ago_in_words(notification.created_at) %>前</small></p>
+</li>
