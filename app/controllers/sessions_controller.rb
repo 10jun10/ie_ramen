@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    if current_user
+      flash[:danger] = "違うアカウントでログインする場合は一度ログアウトしてください"
+      redirect_to root_path
+    end
   end
 
   def create
@@ -16,6 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
+    flash[:success] = 'ログアウトに成功しました。'
     redirect_to root_path
   end
 end
