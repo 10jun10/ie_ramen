@@ -23,6 +23,12 @@ RSpec.describe "Sessions", type: :request do
       redirect_to root_path
     end
 
+    it "ログイン後ログイン画面へいけないこと" do
+      log_in(user)
+      get login_path
+      expect(response).to have_http_status(302)
+    end
+
     it "無効なアカウントでログインすること" do
       get login_path
       post login_path, params: { session: { email: "test@test.com",
