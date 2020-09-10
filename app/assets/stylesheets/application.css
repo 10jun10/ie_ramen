@@ -285,6 +285,10 @@ footer {
   padding: 10px;
 }
 
+.noodle_show .noodle_images {
+  text-align: center;
+}
+
 .noodle_show .intro table tr {
   border-bottom: 1px solid #EAEDED;
 }
