@@ -2,7 +2,7 @@
   <% @noodles.each do |noodle| %>
     <li class="noodle_list">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 noodle_images">
           <% if noodle.image? %>
             <%= image_tag(noodle.image.to_s, size: '200x200') %>
           <% else %>
