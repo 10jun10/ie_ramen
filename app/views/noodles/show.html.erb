@@ -4,12 +4,14 @@
     <div class="row">
       <div class="col-md-4">
         <p><b><%= @noodle.name %></b></p>
-        <% if @noodle.image? %>
-          <%= image_tag(@noodle.image.to_s, size: '250x250') %>
-        <% else %>
-          <%= image_tag 'default.png', size: '200x200' %>
-        <% end %>
-        <%= render 'users/favorite_form' %>
+        <div class="noodle_images">
+          <% if @noodle.image? %>
+            <%= image_tag(@noodle.image.to_s, size: '250x250') %>
+          <% else %>
+            <%= image_tag 'default.png', size: '200x200' %>
+          <% end %>
+          <%= render 'users/favorite_form' %>
+        </div>
       </div>
       <div class="col-md-7 offset-md-1 intro">
         <table class="table">
