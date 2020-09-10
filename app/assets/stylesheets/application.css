@@ -209,7 +209,14 @@ footer {
 
 .edit_form .btn {
   background-color: #f60;
-  color: white;
+  color: #ffffff;
+}
+
+.noodles_index {
+  margin: 30px 0;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
 }
 
 .noodles_index ul, .noodles_search ul {
@@ -223,14 +230,18 @@ footer {
   padding: 10px 0;
 }
 
+.noodles_index ul .noodle_list .noodle_images, .noodles_search ul .noodle_list .noodle_images {
+  text-align: center;
+}
+
 .noodles_index ul .noodle_list .noodle_user_info, .noodles_search ul .noodle_list .noodle_user_info {
   text-align: right;
 }
 
 .noodles_index .btn, .noodles_search .btn {
   position: fixed;
-  top: 70%;
-  right: 10%;
+  top: 80%;
+  right: 15%;
   width: 100px;
   height: 100px;
   background: #f60;
