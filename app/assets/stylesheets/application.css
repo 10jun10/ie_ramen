@@ -343,6 +343,11 @@ footer {
           justify-content: flex-end;
 }
 
+.noodle_show .comment_form button {
+  background-color: #f60;
+  border-color: #f60;
+}
+
 .like-btn-unlike {
   color: #f60;
 }

@@ -206,7 +206,6 @@ footer {
   }
 }
 
-
 // ラーメン投稿
 // ラーメン一覧
 .noodles_index {
@@ -320,6 +319,13 @@ footer {
         display: flex;
         justify-content: flex-end;
       }
+    }
+  }
+
+  .comment_form {
+    button {
+      background-color: #f60;
+      border-color: #f60;
     }
   }
 }

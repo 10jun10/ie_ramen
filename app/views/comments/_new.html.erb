@@ -5,6 +5,9 @@
     <%= hidden_field_tag :noodle_id, @noodle.id %>
     <%= f.label :content %>
     <%= f.text_area :content, placeholder: "コメント", class: "form-control" %>
-    <%= f.submit "送信" %>
+    <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
+      <i class="far fa-comments"></i> 
+      コメントする
+    <% end %>
   <% end %>
 </div>
